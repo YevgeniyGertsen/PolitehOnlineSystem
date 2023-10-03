@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,14 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AccountDTO.cs" />
+    <Compile Include="Model\AddressDTO.cs" />
+    <Compile Include="Model\ClientDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceAccount.cs" />
     <Compile Include="ServiceClient.cs" />
+    <Compile Include="SettingAutomapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Politeh.DAL\Politeh.DAL.csproj">
       <Project>{744fb793-c498-4168-bb28-9b0995cd3caa}</Project>
       <Name>Politeh.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,5 @@
 ﻿using Politeh.BLL;
-using Politeh.DAL;
-using Politeh.DAL.Model;
+using Politeh.BLL.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -45,7 +44,7 @@ namespace Politeh.Online.View
         }
         public static void Authorization()
         {
-            Client client = new Client();
+            ClientDTO client = new ClientDTO();
             Console.Write("Введите логин: ");
             client.Email = Console.ReadLine();
             Console.Write("Введите пароль: ");
@@ -53,9 +52,9 @@ namespace Politeh.Online.View
 
             ServiceClient serviceClient = new ServiceClient(path);
             client = serviceClient.AuthorizationClient(client);
-            if(client != null)
+            if (client != null)
             {
-                Console.WriteLine("Приветствую тебя, " +  client.FullName);
+                Console.WriteLine("Приветствую тебя, " + client.FullName);
             }
             else
             {
@@ -66,7 +65,7 @@ namespace Politeh.Online.View
         }
         public static void Registration()
         {
-            Client client = new Client();
+            ClientDTO client = new ClientDTO();
             Console.Write("Введите email: ");
 
             client.Email = Console.ReadLine();

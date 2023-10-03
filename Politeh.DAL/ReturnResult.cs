@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Politeh.DAL
 {
-    public class ReturnResultClient
+    public class ReturnResult<T>
     {
         public bool IsError { get; set; } = false;
         public string Message { get; set; }
         public Exception Exception { get; set; }
-        public Client Client { get; set; }
-        public List<Client> Clients { get; set; }
+        public T Data { get; set; }
+        public List<T> ListData { get; set; }
     }
 }

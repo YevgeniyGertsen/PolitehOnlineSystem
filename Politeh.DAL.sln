@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Politeh.Online.View", "Poli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Politeh.BLL", "Politeh.BLL\Politeh.BLL.csproj", "{05EDBAE0-1A02-4CAE-82C3-AD45A46127FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Politeh.WpfApp", "Politeh.WpfApp\Politeh.WpfApp.csproj", "{0D78ABD1-42A1-45C7-9A30-4C274E496021}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{05EDBAE0-1A02-4CAE-82C3-AD45A46127FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05EDBAE0-1A02-4CAE-82C3-AD45A46127FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05EDBAE0-1A02-4CAE-82C3-AD45A46127FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D78ABD1-42A1-45C7-9A30-4C274E496021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D78ABD1-42A1-45C7-9A30-4C274E496021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D78ABD1-42A1-45C7-9A30-4C274E496021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D78ABD1-42A1-45C7-9A30-4C274E496021}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

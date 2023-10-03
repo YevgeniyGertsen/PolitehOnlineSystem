@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Politeh.DAL.Model
+namespace Politeh.BLL.Model
 {
-    public class Account
+    public class AccountDTO
     {
         public int Id { get; set; }
         public DateTime CreateDate { get; set; }

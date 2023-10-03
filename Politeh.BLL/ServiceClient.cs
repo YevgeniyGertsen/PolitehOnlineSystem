@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using Politeh.BLL.Model;
 using Politeh.DAL;
 using Politeh.DAL.Model;
 
@@ -10,40 +12,36 @@ namespace Politeh.BLL
 {
     public class ServiceClient
     {
-        private readonly string path = "";
+        private Repository<Client> repo = null;
+        private ReturnResult<Client> result = null;
+        private readonly IMapper _iMapper;
         public ServiceClient(string path)
         {
-            this.path = path;
+            repo = new Repository<Client>(path);
+            _iMapper = SettingAutomapper.Init()
+                .CreateMapper();
         }
 
-        public (bool isError, string message) RegisterClient(Client client)
+
+        public (bool isError, string message) RegisterClient(ClientDTO client)
         {
-            RepositoryClient repo = new RepositoryClient(path);
+            result = repo.Create(_iMapper.Map<Client>(client));
 
-            ReturnResultClient result = repo.CreateClient(client);
-            
-            //string message = "";
-            //if(result.Exception != null)
-            //{
-            //    message = result.Exception.Message;
-            //}
-            //else
-            //{
-            //    message = "";
-            //}
-
-            return (result.IsError, 
-                result.Exception!=null 
+            return (result.IsError,
+                result.Exception != null
                  ? result.Exception.Message
                  : "");
         }
 
-        public Client AuthorizationClient(Client client)
+        public ClientDTO AuthorizationClient(ClientDTO client)
         {
-            RepositoryClient repo = new RepositoryClient(path);
-            ReturnResultClient result = repo.GetClient(client.Email, client.Password);
+            result = repo.GetAll();
 
-            return result.Client;
+            result.Data = result.ListData
+                .FirstOrDefault(f=>f.Email == client.Email
+                && f.Password == client.Password);
+                     
+            return _iMapper.Map<ClientDTO>(result.Data);
         }
     }
 }
