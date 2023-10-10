@@ -10,16 +10,10 @@ using Politeh.BLL.Model;
 
 namespace Politeh.BLL
 {
-    public class ServiceAccount
+    public class ServiceAccount: Service<Account>
     {
-        private Repository<Account> repo = null;
-        private ReturnResult<Account> result = null;
-        private readonly IMapper _iMapper;
-        public ServiceAccount(string path)
+        public ServiceAccount(string path) : base(path)
         {
-            repo = new Repository<Account>(path);
-            _iMapper = SettingAutomapper.Init()
-               .CreateMapper();
         }
 
         public List<AccountDTO> GetAllAccountClient(int ClientId)

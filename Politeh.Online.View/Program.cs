@@ -19,7 +19,23 @@ namespace Politeh.Online.View
 
         static void Main(string[] args)
         {
-            FirstMenu();
+
+
+            AccountDTO acc1 = new AccountDTO() { Balance = 5, Currency=1};
+            
+            AccountDTO acc2 = new AccountDTO() { Balance = 5, Currency=1};
+            acc1++;
+
+            var result = acc1 + acc2;
+
+
+
+
+            Counter counter = new Counter() { Seconds = 666 };
+
+            CounterDTO counterDTO = (CounterDTO)counter;
+            //CounterDTO counterDTO = new CounterDTO();
+            //counterDTO.Seconds = counter.Seconds;
         }
 
         public static void FirstMenu()
@@ -97,4 +113,24 @@ namespace Politeh.Online.View
 
         }
     }
+
+    public class Counter
+    {
+        public int Seconds { get; set; }
+        public static implicit operator CounterDTO(Counter counter)
+        {
+            return new CounterDTO() { Seconds = counter.Seconds };
+        }
+
+        public static explicit operator int(Counter counter)
+        {
+            return counter.Seconds;
+        }
+    }
+
+    public class CounterDTO
+    {
+        public int Seconds { get; set; }
+    }
 }
+

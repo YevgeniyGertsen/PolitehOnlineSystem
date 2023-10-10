@@ -34,5 +34,22 @@ namespace Politeh.BLL.Model
 
         public DateTime ExpiryDate { get; set; }
         public int TypeAccount { get; set; }
+
+        public static AccountDTO operator +(AccountDTO acc1, AccountDTO acc2)
+        {
+            if (acc1.Currency != acc2.Currency)
+                throw new InvalidOperationException("Нельзя сумировать деньги разных валют");
+
+            return new AccountDTO { Balance = acc1.Balance + acc2.Balance };
+        }
+        public static bool operator true(AccountDTO acc1)
+        {
+            return acc1.Balance !=0;
+        }
+
+        public static bool operator false(AccountDTO acc1)
+        {
+            return acc1.Balance <=0;
+        }
     }
 }

@@ -17,6 +17,10 @@ using System.Windows.Shapes;
 
 namespace Politeh.WpfApp
 {
+    namespace Syste.WPF
+    {
+
+    }
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>

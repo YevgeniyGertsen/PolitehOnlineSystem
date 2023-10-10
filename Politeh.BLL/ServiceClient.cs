@@ -10,18 +10,11 @@ using Politeh.DAL.Model;
 
 namespace Politeh.BLL
 {
-    public class ServiceClient
+    public class ServiceClient: Service<Client>
     {
-        private Repository<Client> repo = null;
-        private ReturnResult<Client> result = null;
-        private readonly IMapper _iMapper;
-        public ServiceClient(string path)
-        {
-            repo = new Repository<Client>(path);
-            _iMapper = SettingAutomapper.Init()
-                .CreateMapper();
+        public ServiceClient(string path): base(path)
+        {            
         }
-
 
         public (bool isError, string message) RegisterClient(ClientDTO client)
         {
