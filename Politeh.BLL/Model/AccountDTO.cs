@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Politeh.BLL.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Politeh.BLL.Model
         public int ClientId { get; set; }
         public bool IsActive { get; set; }
         public double Balance { get; set; }
-        public int Currency { get; set; }
+        public Currency Currency { get; set; }
 
         private string _number;
         public string Number

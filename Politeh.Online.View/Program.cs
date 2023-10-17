@@ -1,10 +1,12 @@
 ﻿using Politeh.BLL;
+using Politeh.BLL.Enums;
 using Politeh.BLL.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Policy;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,15 +19,31 @@ namespace Politeh.Online.View
             .ConnectionStrings["DefaultConnection"]
             .ConnectionString;
 
-        static void Main(string[] args)
+        public static void M1(Currency cur)
         {
 
+        }
 
-            AccountDTO acc1 = new AccountDTO() { Balance = 5, Currency=1};
-            
-            AccountDTO acc2 = new AccountDTO() { Balance = 5, Currency=1};
-            acc1++;
+        public static void M2(int cur)
+        {
 
+        }
+
+        static void Main(string[] args)
+        {
+            int cur = 5;
+            if (Enum.IsDefined(typeof(Currency), cur))
+            {
+                Console.WriteLine();
+            }
+
+            string curStr = "kzt";
+            Currency curEnum = (Currency)Enum.Parse(typeof(Currency), curStr);
+
+            AccountDTO acc1 = new AccountDTO() { Balance = 5, Currency = Currency.kzt };
+
+            AccountDTO acc2 = new AccountDTO() { Balance = 5, Currency = Currency.kzt };
+         
             var result = acc1 + acc2;
 
 
@@ -83,6 +101,8 @@ namespace Politeh.Online.View
         {
             ClientDTO client = new ClientDTO();
             Console.Write("Введите email: ");
+
+            client.Sex = Sex.Male;
 
             client.Email = Console.ReadLine();
             Console.Write("Введите пароль: ");

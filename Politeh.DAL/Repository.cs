@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Politeh.DAL
 {
-    public class Repository<T>
+    public class Repository<T> : IRepository<T>
     {
         private readonly string path;
 

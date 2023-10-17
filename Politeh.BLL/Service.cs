@@ -12,7 +12,7 @@ namespace Politeh.BLL
 {
     public abstract class Service<T> where T:class
     {
-        protected Repository<T> repo = null;
+        protected IRepository<T> repo = null;
         protected ReturnResult<T> result = null;
         protected readonly IMapper _iMapper;
 

@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Currency.cs" />
+    <Compile Include="Enums\Sex.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="Model\AccountDTO.cs" />
     <Compile Include="Model\AddressDTO.cs" />

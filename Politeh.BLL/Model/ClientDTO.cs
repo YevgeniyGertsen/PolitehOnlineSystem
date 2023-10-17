@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Politeh.BLL.Enums;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,7 +60,7 @@ namespace Politeh.BLL.Model
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public int Sex { get; set; }
+        public Sex Sex { get; set; }
         public DateTime Dob { get; set; }
         public int Age
         {

@@ -14,7 +14,7 @@ namespace Politeh.DAL.Model
         public int ClientId { get; set; }
         public bool IsActive { get; set; }
         public double Balance { get; set; }
-        public int Currency { get; set; }
+        public int? Currency { get; set; } = null;
 
         private string _number;
         public string Number
