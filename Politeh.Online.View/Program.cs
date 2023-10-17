@@ -19,41 +19,10 @@ namespace Politeh.Online.View
             .ConnectionStrings["DefaultConnection"]
             .ConnectionString;
 
-        public static void M1(Currency cur)
-        {
-
-        }
-
-        public static void M2(int cur)
-        {
-
-        }
-
+        
         static void Main(string[] args)
         {
-            int cur = 5;
-            if (Enum.IsDefined(typeof(Currency), cur))
-            {
-                Console.WriteLine();
-            }
-
-            string curStr = "kzt";
-            Currency curEnum = (Currency)Enum.Parse(typeof(Currency), curStr);
-
-            AccountDTO acc1 = new AccountDTO() { Balance = 5, Currency = Currency.kzt };
-
-            AccountDTO acc2 = new AccountDTO() { Balance = 5, Currency = Currency.kzt };
-         
-            var result = acc1 + acc2;
-
-
-
-
-            Counter counter = new Counter() { Seconds = 666 };
-
-            CounterDTO counterDTO = (CounterDTO)counter;
-            //CounterDTO counterDTO = new CounterDTO();
-            //counterDTO.Seconds = counter.Seconds;
+            FirstMenu();
         }
 
         public static void FirstMenu()

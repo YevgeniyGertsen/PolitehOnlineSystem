@@ -39,9 +39,9 @@ namespace Politeh.WpfApp
             client.Email = tbxEmail.Text;
             client.Password = pwdPassword.Password;
 
-            var result = service.AuthorizationClient(client);
-            //MessageBox.Show(result.ShortName);
-            MainWindow mw = new MainWindow();
+            client = service.AuthorizationClient(client);
+            
+            MainWindow mw = new MainWindow(client);
             mw.Show();
 
             this.Close();

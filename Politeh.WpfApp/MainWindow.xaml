@@ -6,7 +6,21 @@
         xmlns:local="clr-namespace:Politeh.WpfApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Label>Hello</Label>
-    </Grid>
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Файл1" Click="MenuItem_Click">
+                    <MenuItem Header="Файл2"></MenuItem>
+                    <MenuItem Header="Файл3" ></MenuItem>
+                </MenuItem>
+                
+            </MenuItem>
+            
+        </Menu>
+        <Label DockPanel.Dock="Bottom">
+            Connect
+        </Label>
+
+        <Frame x:Name="mainFrame"></Frame>
+    </DockPanel>
 </Window>
