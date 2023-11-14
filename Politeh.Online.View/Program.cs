@@ -58,6 +58,12 @@ namespace Politeh.Online.View
             if (client != null)
             {
                 Console.WriteLine("Приветствую тебя, " + client.FullName);
+                AccountDTO acc = new AccountDTO();
+                acc.ClientId = client.Id;
+                acc.Currency = Currency.kzt;
+
+                ServiceAccount serAcc = new ServiceAccount(path);
+                serAcc.CreateAccount()
             }
             else
             {

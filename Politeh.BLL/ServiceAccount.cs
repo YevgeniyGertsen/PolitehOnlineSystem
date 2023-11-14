@@ -29,5 +29,32 @@ namespace Politeh.BLL
 
             return _iMapper.Map<List<AccountDTO>>(result.Data);
         }
+
+        public bool CreateAccount(Account account)
+        {
+           result = repo.Create(account);
+           if ( result.IsError == true && del != null)
+            {
+                del.Invoke(result.IsError, result?.Exception.Message);
+
+            }
+            return result.IsError;
+           
+        }
+
+        public bool RefillMoney(Account account)
+        {
+            result = repo.Update(account);
+            if (result.IsError == true && del != null)
+            {
+                del.Invoke(result.IsError, result?.Exception.Message);
+
+            }
+            else if (result.IsError == false && del != null)
+            {
+                del.Invoke(result.IsError, "Счет успешно пополнен!");
+            }
+            return result.IsError;
+        }
     }
 }
