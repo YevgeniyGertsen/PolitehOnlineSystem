@@ -27,7 +27,7 @@ namespace Politeh.WpfApp
     public partial class AuthWindow : Window
     {
         ServiceClient service;
-        private readonly string path = @"C:\Temp\Politeh.db";
+        private readonly string path = @"C:\Temp2\Politeh.db";
         public AuthWindow()
         {
             service = new ServiceClient(path);
@@ -38,13 +38,22 @@ namespace Politeh.WpfApp
             ClientDTO client = new ClientDTO();
             client.Email = tbxEmail.Text;
             client.Password = pwdPassword.Password;
-
+            service.RegisterDelegate(ShowMessage);
             client = service.AuthorizationClient(client);
             
             MainWindow mw = new MainWindow(client);
             mw.Show();
 
             this.Close();
+        }
+        // public delegate void DelegateEx(bool IsError, string ErrorMessage);
+
+        public void ShowMessage(bool IsError, string ErrorMessage)
+        {
+            if (IsError)
+            {
+                MessageBox.Show(ErrorMessage, "IsError", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

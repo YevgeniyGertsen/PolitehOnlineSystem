@@ -10,8 +10,10 @@ using Politeh.BLL.Model;
 
 namespace Politeh.BLL
 {
+
     public abstract class Service<T> where T:class
     {
+        public delegate void DelegateEx(bool IsError, string ErrorMessage);
         protected IRepository<T> repo = null;
         protected ReturnResult<T> result = null;
         protected readonly IMapper _iMapper;
@@ -27,7 +29,11 @@ namespace Politeh.BLL
             }).CreateMapper();
         }
 
-
+        protected DelegateEx del = null;
+        public virtual void RegisterDelegate(DelegateEx del)
+        {
+            this.del = del;
+        }
 
 
     }

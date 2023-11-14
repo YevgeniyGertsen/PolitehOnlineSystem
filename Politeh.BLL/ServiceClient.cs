@@ -19,7 +19,10 @@ namespace Politeh.BLL
         public (bool isError, string message) RegisterClient(ClientDTO client)
         {
             result = repo.Create(_iMapper.Map<Client>(client));
-
+            if (result.IsError == true && del != null)
+            {
+                del.Invoke(result.IsError, result?.Exception.Message);
+            }
             return (result.IsError,
                 result.Exception != null
                  ? result.Exception.Message
@@ -29,7 +32,10 @@ namespace Politeh.BLL
         public ClientDTO AuthorizationClient(ClientDTO client)
         {
             result = repo.GetAll();
-
+            if (result.IsError == true && del != null)
+            {
+                del.Invoke(result.IsError, result?.Exception.Message);
+            }
             result.Data = result.ListData
                 .FirstOrDefault(f=>f.Email == client.Email
                 && f.Password == client.Password);

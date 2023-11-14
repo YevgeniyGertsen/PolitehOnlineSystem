@@ -113,6 +113,10 @@
       <Project>{05edbae0-1a02-4cae-82c3-ad45a46127fd}</Project>
       <Name>Politeh.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Politeh.DAL\Politeh.DAL.csproj">
+      <Project>{744FB793-C498-4168-BB28-9B0995CD3CAA}</Project>
+      <Name>Politeh.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

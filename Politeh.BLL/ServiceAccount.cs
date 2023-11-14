@@ -19,7 +19,10 @@ namespace Politeh.BLL
         public List<AccountDTO> GetAllAccountClient(int ClientId)
         {
             result = repo.GetAll();
-
+            if (result.IsError == true && del != null)
+            {
+                del.Invoke(result.IsError, result?.Exception.Message);
+            }
             result.ListData = result.ListData
                 .Where(w => w.ClientId == ClientId)
                 .ToList();

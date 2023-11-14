@@ -15,7 +15,7 @@ namespace Politeh.DAL
         public Repository(string path)
         {
             if (string.IsNullOrWhiteSpace(path))
-                throw new ArgumentNullException("Путь в БД не может быть пустым");
+                throw new Exception("Путь в БД не может быть пустым");
 
             this.path = path;
         }
